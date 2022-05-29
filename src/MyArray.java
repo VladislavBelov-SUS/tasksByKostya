@@ -24,8 +24,8 @@ public class MyArray {
         if (userInput == 1) {
             Arrays.sort(array);
 
-            for (int i = 0; i < array.length; i++) {
-                System.out.println(array[i]);
+            for (int j : array) {
+                System.out.println(j);
             }
         } else {
             System.out.println("хорошо");
@@ -44,9 +44,6 @@ public class MyArray {
             newArray[i] = array[i];
         }
         newArray[index] = num;
-        for (int i = index; i < array.length; i++) {
-            newArray[i - 1] = array[i];
-        }
         for (int i : newArray) {
             System.out.println("Индекс массива[" + i + "]=" + newArray[i]);
         }
