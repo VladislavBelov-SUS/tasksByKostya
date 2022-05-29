@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -18,18 +19,31 @@ public class MyArray {
             array[i] = rnd.nextInt((high - low) + low);
             System.out.println("Индекс массива[" + i + "]=" + array[i]);
         }
+        System.out.println("Если хотите отсортировать массив по возрастанию, нажмите 1. Если не хотите нажмите 0.");
+        int userInput = input.nextInt();
+        if (userInput == 1) {
+            Arrays.sort(array);
+
+            for (int i = 0; i < array.length; i++) {
+                System.out.println(array[i]);
+            }
+        } else {
+            System.out.println("хорошо");
+        }
+
     }
+
 
     public void inputArrayElement() {
         System.out.println("Введите число на которое хотите заменить последний элемент Массива -> ");
-        int num = 100;
+        int num = input.nextInt();
         int index = array.length;
         int[] newArray = new int[array.length + 1];
 
         for (int i = 0; i < index; i++) {
             newArray[i] = array[i];
         }
-        newArray[index] = 100;
+        newArray[index] = num;
         for (int i = index; i < array.length; i++) {
             newArray[i - 1] = array[i];
         }
