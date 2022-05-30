@@ -14,3 +14,9 @@ public class Main {
 
     }
 }
+/*     for(int i=index;i<arr.length;i++){
+        newArr[i+1]=arr[i];
+        }
+        for(int i:newArr){
+        System.out.println(i);
+        }*/

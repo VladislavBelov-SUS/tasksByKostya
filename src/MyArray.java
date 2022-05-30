@@ -24,8 +24,8 @@ public class MyArray {
         if (userInput == 1) {
             Arrays.sort(array);
 
-            for (int j : array) {
-                System.out.println(j);
+            for (int i =0; i < array.length; i++) {
+                System.out.println("Индекс массива[" + i + "]=" + array[i]);
             }
         } else {
             System.out.println("хорошо");
@@ -36,14 +36,14 @@ public class MyArray {
 
     public void inputArrayElement() {
         System.out.println("Введите число на которое хотите заменить последний элемент Массива -> ");
-        int num = input.nextInt();
+        int userInput = input.nextInt();
         int index = array.length;
         int[] newArray = new int[array.length + 1];
 
         for (int i = 0; i < index; i++) {
             newArray[i] = array[i];
         }
-        newArray[index] = num;
+        newArray[index] = userInput;
         for (int i : newArray) {
             System.out.println("Индекс массива[" + i + "]=" + newArray[i]);
         }
