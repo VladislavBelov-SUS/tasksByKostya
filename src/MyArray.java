@@ -15,7 +15,7 @@ public class MyArray {
     public void printMenu() {
         System.out.println("Что вы хотите сделать? ");
         System.out.println("1 - Заполнить массив");
-        System.out.println("2 - Отсортировать  массив");
+        System.out.println("2 - Сортировка массива");
         System.out.println("3 - Добавление элемента массива");
         System.out.println("4 - Удаление элемента массива");
         System.out.println("5 - Показать индекс числа массива");

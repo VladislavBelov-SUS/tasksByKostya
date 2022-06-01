@@ -14,7 +14,7 @@ public class Main {
             if (command == 1) {
                 array.filling();
             } else if (command == 2) {
-                System.out.println("Каким типом сортировки хотите воспользоваться? ");
+                System.out.println("Выберите тип сортировки, которым хотите воспользоваться? ");
                 System.out.println("1 - Arrays.sort ");
                 System.out.println("2 - bubbleSort ");
                 System.out.println("3 - insertionSort ");
