@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
@@ -8,18 +9,19 @@ public class MyArray {
 
     public MyArray(int size) {
         array = new int[size];
+        filling();
 
     }
 
-    public static void printMenu() {
+    public void printMenu() {
         System.out.println("Что вы хотите сделать? ");
-        System.out.println("1 - заполнить массив");
-        System.out.println("2 - отсортировать  массив");
-        System.out.println("3 - вставка элемента в массив");
-        System.out.println("4 - удаление элемента массива");
-        System.out.println("5 - Показать индекс элемента массива");
-        System.out.println("6 - Показать элемент массива под индексом");
-        System.out.println("7 - воспользоваться двоичным поиском");
+        System.out.println("1 - Заполнить массив");
+        System.out.println("2 - Отсортировать  массив");
+        System.out.println("3 - Добавление элемента массива");
+        System.out.println("4 - Удаление элемента массива");
+        System.out.println("5 - Показать индекс числа массива");
+        System.out.println("6 - Показать число массива");
+        System.out.println("7 - Воспользоваться двоичным поиском");
         System.out.println("0 - Выход");
     }
 
@@ -28,21 +30,20 @@ public class MyArray {
         int high = 1000;
         for (int i = 0; i < array.length; i++) {
             array[i] = rnd.nextInt((high - low) + low);
-            System.out.println("Индекс массива[" + i + "]=" + array[i]);
+            //  System.out.println("Индекс массива[" + i + "]=" + array[i]);
         }
+        sort();
     }
 
     public void sort() {
-        int[] sortedArray = new int[array.length];
         Arrays.sort(array);
 
         for (int i = 0; i < array.length; i++) {
             System.out.println("Индекс массива[" + i + "]=" + array[i]);
         }
-        this.array = sortedArray;
     }
 
-    public int binarySearch(int[] array, int key) {
+    public int binarySearch(int key) {
         int low = 0;
         int high = array.length - 1;
         int middle = 0;
@@ -59,29 +60,25 @@ public class MyArray {
                 return middle;
             }
         }
-        return - 1;
+        return -1;
     }
 
-    public void inputArrayElement(Scanner scanner) {
-        System.out.println("Введите число на которое хотите заменить последний элемент Массива -> ");
+    public void addArrayElement(Scanner scanner) {
+        System.out.println("Введите число которое хотите добавить в последний элемент Массива -> ");
         int userInput = scanner.nextInt();
-        int index = array.length - 1;
-        int[] newArray = new int[array.length + 1];
-
-        for (int i = 0; i < index; i++) {
-            newArray[i] = array[i];
-        }
-        newArray[index] = userInput;
-        for (int i = 0; i < array.length; i++) {
+        int[] newArray = Arrays.copyOf(array, array.length + 1);
+        newArray[newArray.length - 1] = userInput;
+        for (int i = 0; i < newArray.length; i++) {
             System.out.println("Индекс массива[" + i + "]=" + newArray[i]);
         }
         this.array = newArray;
+
     }
 
     public void eraseArrayElement(Scanner scanner) {
         System.out.println("Введите индекс массива, который вы хотите удалить-> ");
         int userInput = scanner.nextInt();
-        int[] newArray = new int[array.length + 1];
+        int[] newArray = new int[array.length];
         for (int i = userInput; i < array.length - 1; i++) {
             array[i] = array[i + 1];
         }
@@ -94,39 +91,25 @@ public class MyArray {
         this.array = newArray;
     }
 
-    public void searchArrayIndex(MyArray array, Scanner scanner) {
-        System.out.println("Введите число из массива, индекс которого вы хотите узнать-> ");
+    public void searchArrayIndex(Scanner scanner) {
+        System.out.println("Введите индекс массива, чтобы увидеть число-> ");
         int userInput = scanner.nextInt();
-        System.out.println(this.array[userInput]);
-
+        if (userInput < array.length) {
+            System.out.println(this.array[userInput]);
+        } else {
+            System.out.println("Вы вышли за пределы массива");
+        }
     }
 
-    public void searchArrayElement(MyArray array, Scanner scanner) {
-        System.out.println("Введите индекс массива, чтобы увидеть число-> ");
+    public void searchArrayElement(Scanner scanner) {
+        System.out.println("Введите число из массива, индекс которого вы хотите узнать-> ");
         int userInput = scanner.nextInt();
         for (int i = 0; i < this.array.length; i++) {
             if (userInput == this.array[i]) {
                 System.out.println("Индекс массива[" + i + "]");
+            } else {
+                System.out.println("Такого числа нет в массиве");
             }
         }
-
     }
-//    public int runBinarySearchIteratively(int[] array, int key, int low, int high) {
-//        int index = Integer.MAX_VALUE;
-//
-//        while (low <= high) {
-//            int mid = (low + high) / 2;
-//            if (array[mid] < key) {
-//                low = mid + 1;
-//            } else if (array[mid] > key) {
-//                high = mid - 1;
-//            } else if (array[mid] == key) {
-//                index = mid;
-//                break;
-//            }
-//        }
-//        return index;
-//    }
-
-
 }
