@@ -14,8 +14,19 @@ public class Main {
             if (command == 1) {
                 array.filling();
             } else if (command == 2) {
-                array.sort();
-            }  else if (command == 3) {
+                System.out.println("Каким типом сортировки хотите воспользоваться? ");
+                System.out.println("1 - Arrays.sort ");
+                System.out.println("2 - bubbleSort ");
+                System.out.println("3 - insertionSort ");
+                int choice = scanner.nextInt();
+                if (choice == 1) {
+                    array.sort();
+                } else if (choice == 2) {
+                    array.bubbleSort();
+                } else if (choice == 3) {
+                    array.insertionSort();
+                }
+            } else if (command == 3) {
                 array.addArrayElement(scanner);
             } else if (command == 4) {
                 array.eraseArrayElement(scanner);

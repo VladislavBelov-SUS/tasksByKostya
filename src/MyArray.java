@@ -1,4 +1,3 @@
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
@@ -30,14 +29,48 @@ public class MyArray {
         int high = 1000;
         for (int i = 0; i < array.length; i++) {
             array[i] = rnd.nextInt((high - low) + low);
-            //  System.out.println("Индекс массива[" + i + "]=" + array[i]);
+            System.out.println("Индекс массива[" + i + "]=" + array[i]);
         }
-        sort();
     }
 
     public void sort() {
         Arrays.sort(array);
 
+        for (int i = 0; i < array.length; i++) {
+            System.out.println("Индекс массива[" + i + "]=" + array[i]);
+        }
+    }
+
+    public void bubbleSort() {
+        boolean isSorted = false;
+        int buf;
+        while (!isSorted) {
+            isSorted = true;
+            for (int i = 0; i < array.length - 1; i++) {
+                if (array[i] > array[i + 1]) {
+                    isSorted = false;
+
+                    buf = array[i];
+                    array[i] = array[i + 1];
+                    array[i + 1] = buf;
+                }
+            }
+        }
+        for (int i = 0; i < array.length; i++) {
+            System.out.println("Индекс массива[" + i + "]=" + array[i]);
+        }
+    }
+
+    public void insertionSort() {
+        for (int i = 1; i < array.length; i++) {
+            int current = array[i];
+            int j = i - 1;
+            while (j >= 0 && current < array[j]) {
+                array[j + 1] = array[j];
+                j--;
+            }
+            array[j + 1] = current;
+        }
         for (int i = 0; i < array.length; i++) {
             System.out.println("Индекс массива[" + i + "]=" + array[i]);
         }
