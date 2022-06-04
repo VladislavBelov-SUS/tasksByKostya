@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Stack;
 
 public class Main {
 
@@ -40,11 +41,13 @@ public class Main {
                 int position = array.binarySearch(key);
                 if (position == -1) {
                     System.out.println("Поиск " + key + " , такого числа в последовательности нет!");
+                } else if (command == 8) {
+                    array.stack();
+                } else if (command == 9) {
+                    array.queue();
                 } else {
                     System.out.println("Число " + key + " , находиться в индексе" + position);
                 }
-
-
             } else if (command == 0) {
                 System.out.println("Выход");
                 break;

@@ -1,6 +1,7 @@
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.Stack;
 
 public class MyArray {
     int[] array;
@@ -9,6 +10,19 @@ public class MyArray {
     public MyArray(int size) {
         array = new int[size];
         filling();
+
+    }
+
+    public void stack() {
+        Stack arrayStack = new Stack();
+        for (int i = 0; i < array.length; i++) {
+            arrayStack.pop();
+        }
+        while (!arrayStack.empty())
+            System.out.println(arrayStack.pop());
+    }
+
+    public void queue() {
 
     }
 
@@ -21,6 +35,8 @@ public class MyArray {
         System.out.println("5 - Показать индекс числа массива");
         System.out.println("6 - Показать число массива");
         System.out.println("7 - Воспользоваться двоичным поиском");
+        System.out.println("8 - Воспользоваться стэком");
+        System.out.println("9 - Воспользоваться очередью");
         System.out.println("0 - Выход");
     }
 
