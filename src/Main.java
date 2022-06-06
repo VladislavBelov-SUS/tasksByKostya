@@ -8,6 +8,7 @@ public class Main {
         System.out.println("Введите длину массива ");
         int userInput = scanner.nextInt();
         MyArray array = new MyArray(userInput);
+        MyStack stack = new MyStack();
 
         while (true) {
             array.printMenu();
@@ -41,13 +42,14 @@ public class Main {
                 int position = array.binarySearch(key);
                 if (position == -1) {
                     System.out.println("Поиск " + key + " , такого числа в последовательности нет!");
-                } else if (command == 8) {
-                    array.stack();
-                } else if (command == 9) {
-                    array.queue();
                 } else {
                     System.out.println("Число " + key + " , находиться в индексе" + position);
                 }
+            } else if (command == 8) {
+                int stackPush = scanner.nextInt();
+                stack.push(stackPush);
+            } else if (command == 9) {
+                System.out.println("Последний элемент массива " + stack.pop());
             } else if (command == 0) {
                 System.out.println("Выход");
                 break;

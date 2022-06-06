@@ -13,19 +13,6 @@ public class MyArray {
 
     }
 
-    public void stack() {
-        Stack arrayStack = new Stack();
-        for (int i = 0; i < array.length; i++) {
-            arrayStack.pop();
-        }
-        while (!arrayStack.empty())
-            System.out.println(arrayStack.pop());
-    }
-
-    public void queue() {
-
-    }
-
     public void printMenu() {
         System.out.println("Что вы хотите сделать? ");
         System.out.println("1 - Заполнить массив");
