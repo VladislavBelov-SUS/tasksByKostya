@@ -9,7 +9,7 @@ public class Main {
         int userInput = scanner.nextInt();
         MyArray array = new MyArray(userInput);
         MyStack stack = new MyStack();
-
+        MyQueue queue = new MyQueue();
         while (true) {
             array.printMenu();
             int command = scanner.nextInt();
@@ -46,10 +46,25 @@ public class Main {
                     System.out.println("Число " + key + " , находиться в индексе" + position);
                 }
             } else if (command == 8) {
-                int stackPush = scanner.nextInt();
-                stack.push(stackPush);
+                System.out.println("1 - добавить элемент ");
+                System.out.println("2 - удалить элемент ");
+                int stackInput = scanner.nextInt();
+                if (stackInput == 1) {
+                    int stackPush = scanner.nextInt();
+                    stack.push(stackPush);
+                } else if (stackInput == 2) {
+                    System.out.println("Удален последний элемент массива " + stack.pop());
+                }
             } else if (command == 9) {
-                System.out.println("Последний элемент массива " + stack.pop());
+                System.out.println("1 - добавить элемент ");
+                System.out.println("2 - удалить элемент ");
+                int queueInput = scanner.nextInt();
+                if (queueInput == 1) {
+                    int queuePush = scanner.nextInt();
+                    queue.push(queuePush);
+                } else if (queueInput == 2) {
+                    System.out.println("Удален первый элемент массива " + queue.pop());
+                }
             } else if (command == 0) {
                 System.out.println("Выход");
                 break;

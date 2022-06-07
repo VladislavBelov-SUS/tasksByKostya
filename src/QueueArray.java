@@ -1,5 +1,5 @@
 public interface QueueArray {
-    void push();
-    void pop();
+    void push(int item);
+    int pop();
     boolean isEmpty();
 }
