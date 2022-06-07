@@ -1,7 +1,6 @@
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
-import java.util.Stack;
 
 public class MyArray {
     int[] array;
@@ -82,8 +81,8 @@ public class MyArray {
     public int binarySearch(int key) {
         int low = 0;
         int high = array.length - 1;
-        int middle = 0;
-        if (key < array[low] || key > array[high] || low > high) {
+        int middle;
+        if (key < array[low] || key > array[high] ) {
             return -1;
         }
         while (low <= high) {

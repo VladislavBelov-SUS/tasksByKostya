@@ -39,6 +39,7 @@ public class MyQueue implements QueueArray {
         }
         this.array = newArray;
         show();
+
         return first;
     }
 
