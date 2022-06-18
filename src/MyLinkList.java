@@ -4,11 +4,7 @@ public class MyLinkList {
 
 
     public void addFirst(double value, int id) {
-        MyLink myLink = new MyLink();
-        myLink.value = value;
-        myLink.id = id;
-        myLink.next = first;
-        first = myLink;
+        first = new MyLink(id, value, first);
     }
 
     public void removeFirst() {
@@ -16,17 +12,15 @@ public class MyLinkList {
     }
 
     public void addLast(double value) {
-        MyLink newLink = new MyLink();
-        MyLink current = first;
-        newLink.value = value;
         if (first == null) {
-            first = last = newLink;
+            first = last = MyLink.addFirst(value);
             return;
         }
+        MyLink current = first;
         while (current.next != null) {
             current = current.next;
         }
-        current.next = newLink;
+        MyLink.addNext(current, value);
     }
 
     public void removeLast() {
@@ -37,6 +31,7 @@ public class MyLinkList {
         }
         if (first.next == null) {
             removeFirst();
+            return;
         }
         while (current.next != null) {
             previous = current;
@@ -46,23 +41,9 @@ public class MyLinkList {
         last = previous;
     }
 
-    public void addById(double value, int id) {
-        MyLink newLink = new MyLink();
-        newLink.id = id;
-        newLink.value = value;
-        MyLink current = first;
-        MyLink previous = null;
-        while (current != null) {
-            if (current.id == id) {
-                if (current == first) {
-                    first = first.next;
-                } else {
-                    previous = current;
-                }
-            }
-            current = newLink;
-            current.next = newLink.next;
-        }
+    public void addAfterElementWithId(double value, int id) {
+        MyLink current = searchById(id);
+        MyLink.addNext(current, value);
     }
 
 
